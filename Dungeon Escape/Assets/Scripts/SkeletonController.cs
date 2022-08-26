@@ -15,6 +15,8 @@ public class SkeletonController : MonoBehaviour
     private float cooldownTimer = Mathf.Infinity;
 
     private Animator animator;
+
+    private Health playerHealth;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -44,6 +46,12 @@ public class SkeletonController : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.BoxCast(capsuleCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, 
         new Vector3(capsuleCollider.bounds.size.x * range, capsuleCollider.bounds.size.y,capsuleCollider.bounds.size.z), 0, Vector2.left, 0, playerLayer);
+
+
+        if(hit.collider != null){
+            playerHealth = hit.transform.GetComponent<Health>();
+        }
+
         return hit.collider != null;
     }
 
@@ -56,7 +64,7 @@ public class SkeletonController : MonoBehaviour
 
     private void DamagePlayer(){
         if(PlayerInSight()){
-            //Damage player
+            playerHealth.TakeDamage(damage);
         }
     }
 }
