@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public Animator animator;
+    private Animator animator;
     private Rigidbody2D rb2D;
 
     private float moveSpeed;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         moveSpeed = 0.75f;
         jumpForce = 15f;
