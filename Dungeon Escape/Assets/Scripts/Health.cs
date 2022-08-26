@@ -10,11 +10,19 @@ public class Health : MonoBehaviour
 
     private Animator animator;
     private bool dead;
+
+
+    //iFrames
+    [SerializeField] float invulnerabilityDuration;
+    [SerializeField] int numberOfFlashes; 
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
         currentHealth = startingHealth;
         animator = GetComponent<Animator>();
         dead = false;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamage(float _damage){
@@ -25,6 +33,7 @@ public class Health : MonoBehaviour
         if(currentHealth > 0){
             
             animator.SetTrigger("damaged");
+            StartCoroutine(Invunerability());
         }
         else{
             if(!dead){
@@ -36,9 +45,30 @@ public class Health : MonoBehaviour
     }
 
 
+
+
     void Update(){
         if(Input.GetKeyDown(KeyCode.E)){
             TakeDamage(1);
         }
     }
+
+
+
+    private IEnumerator Invunerability(){
+        Physics2D.IgnoreLayerCollision(7, 8, true);
+
+        for(int i = 0; i < numberOfFlashes; i++){
+            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+
+            yield return new WaitForSeconds(invulnerabilityDuration/ (numberOfFlashes*2));
+
+            spriteRenderer.color = Color.white;
+
+            yield return new WaitForSeconds(invulnerabilityDuration/ (numberOfFlashes*2));
+        }
+
+        Physics2D.IgnoreLayerCollision(7, 8, false);
+    }
+
 }

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 15313246}
   - component: {fileID: 15313247}
   - component: {fileID: 15313248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6717,3 +6717,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  invulnerabilityDuration: 2
+  numberOfFlashes: 3
