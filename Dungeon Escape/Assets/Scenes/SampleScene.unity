@@ -332,6 +332,11 @@ Transform:
   m_Father: {fileID: 1295546070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1161766580 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2360656181988390614, guid: 2b2e94b5aa5c99a4fa2204314462819b, type: 3}
+  m_PrefabInstance: {fileID: 2360656181998313357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1295546068
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +370,8 @@ MonoBehaviour:
   rightEdge: {fileID: 830002323}
   enemy: {fileID: 15313245}
   speed: 1
+  animator: {fileID: 1161766580}
+  idleDuration: 2
 --- !u!4 &1295546070
 Transform:
   m_ObjectHideFlags: 0

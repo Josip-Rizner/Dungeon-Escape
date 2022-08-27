@@ -14,9 +14,15 @@ public class EnemyPatrol : MonoBehaviour
     private Vector3 initialScale;
     private bool isMovingLeft = true;
 
+    [SerializeField] Animator animator;
+
+    [SerializeField] float idleDuration;
+    private float idleTimer;
 
     void Start(){
         initialScale = enemy.localScale;
+
+
     }
 
     void Update(){
@@ -39,7 +45,16 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+
+    void OnDisable(){
+        animator.SetBool("moving", false);
+    }
+
     private void MoveInDirection(int _direction){
+
+        idleTimer = 0;
+
+        animator.SetBool("moving", true);
 
         enemy.localScale = new Vector3(Mathf.Abs(initialScale.x) * _direction, initialScale.y, initialScale.z);
 
@@ -47,8 +62,13 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     private void DirectionChange(){
-        isMovingLeft = !isMovingLeft;
 
+        animator.SetBool("moving", false);
+
+        idleTimer += Time.deltaTime;
+        if(idleTimer > idleDuration){
+            isMovingLeft = !isMovingLeft;
+        }
     }
 
 }

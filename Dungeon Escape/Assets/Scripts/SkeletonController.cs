@@ -17,9 +17,13 @@ public class SkeletonController : MonoBehaviour
     private Animator animator;
 
     private Health playerHealth;
+
+
+    private EnemyPatrol enemyPatrol;
     void Start()
     {
         animator = GetComponent<Animator>();
+        enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
 
 
@@ -27,13 +31,17 @@ public class SkeletonController : MonoBehaviour
     {
         cooldownTimer += Time.deltaTime;
 
-
         if(PlayerInSight()){
             if(cooldownTimer >= attackCooldown){
                 
                 cooldownTimer = 0;
                 animator.SetTrigger("attack");
             }
+        }
+
+
+        if(enemyPatrol != null){
+            enemyPatrol.enabled = !PlayerInSight();
         }
     }
 
