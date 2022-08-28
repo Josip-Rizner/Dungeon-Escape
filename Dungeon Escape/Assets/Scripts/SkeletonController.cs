@@ -18,20 +18,24 @@ public class SkeletonController : MonoBehaviour
 
     private Health playerHealth;
 
-
     private EnemyPatrol enemyPatrol;
+
+    private EnemyHealth health;
     void Start()
     {
+        health = GetComponent<EnemyHealth>();
         animator = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
-    }
+        
+    }   
 
 
     void Update()
     {
+
         cooldownTimer += Time.deltaTime;
 
-        if(PlayerInSight()){
+        if(PlayerInSight() && !playerHealth.isDead){
             if(cooldownTimer >= attackCooldown){
                 
                 cooldownTimer = 0;

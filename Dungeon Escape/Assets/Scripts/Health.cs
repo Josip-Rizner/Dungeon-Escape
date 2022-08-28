@@ -9,7 +9,8 @@ public class Health : MonoBehaviour
     public float currentHealth{ get; private set; }
 
     private Animator animator;
-    private bool dead;
+    public bool isDead{ get; private set; }
+
 
 
     //iFrames
@@ -20,7 +21,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = startingHealth;
         animator = GetComponent<Animator>();
-        dead = false;
+        isDead = false;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -36,10 +37,10 @@ public class Health : MonoBehaviour
             StartCoroutine(Invunerability());
         }
         else{
-            if(!dead){
+            if(!isDead){
                 animator.SetTrigger("dead");
                 GetComponent<PlayerController>().enabled = false;
-                dead = true;
+                isDead = true;
             }
         }
     }
@@ -48,9 +49,9 @@ public class Health : MonoBehaviour
 
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.E)){
+        /*if(Input.GetKeyDown(KeyCode.E)){
             TakeDamage(1);
-        }
+        }*/
     }
 
 
@@ -59,7 +60,7 @@ public class Health : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 8, true);
 
         for(int i = 0; i < numberOfFlashes; i++){
-            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+            spriteRenderer.color = new Color(1, 1, 1, 0.2f);
 
             yield return new WaitForSeconds(invulnerabilityDuration/ (numberOfFlashes*2));
 

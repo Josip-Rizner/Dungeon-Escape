@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [SerializeField] float damage;
     private Animator animator;
     private Rigidbody2D rb2D;
 
@@ -20,11 +20,17 @@ public class PlayerController : MonoBehaviour
 
     //ledge grab variables
     private bool upperBox, lowerBox;
-    public LayerMask groundMask;
-    public float upperXOfSet, upperYOfSet, upperXSize, upperYSize, lowerXOfSet, lowerYOfSet, lowerXSize, lowerYSize;
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] float upperXOfSet, upperYOfSet, upperXSize, upperYSize, lowerXOfSet, lowerYOfSet, lowerXSize, lowerYSize;
     private bool isGrabingLedge;
     private bool dissableHorizontalMovement;
 
+
+    private EnemyHealth enemyHealth;
+    [SerializeField] CapsuleCollider2D capsuleCollider;
+    [SerializeField] float range;
+    [SerializeField] float colliderDistance;
+    [SerializeField] LayerMask enemyLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -145,5 +151,32 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireCube(new Vector2(transform.position.x + (upperXOfSet * transform.localScale.x), transform.position.y + upperYOfSet), new Vector2(upperXSize,upperYSize));
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + (lowerXOfSet * transform.localScale.x), transform.position.y + lowerYOfSet), new Vector2(lowerXSize,lowerYSize));
+    }
+
+
+    private bool EnemyInSight(){
+
+        RaycastHit2D hit = Physics2D.BoxCast(capsuleCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, 
+        new Vector3(capsuleCollider.bounds.size.x * range, capsuleCollider.bounds.size.y,capsuleCollider.bounds.size.z), 0, Vector2.left, 0, enemyLayer);
+
+
+        if(hit.collider != null){
+            enemyHealth = hit.transform.GetComponent<EnemyHealth>();
+        }
+
+        return hit.collider != null;
+    }
+
+
+    private void OnDrawGizmos(){
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(capsuleCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, 
+        new Vector3(capsuleCollider.bounds.size.x * range,capsuleCollider.bounds.size.y,capsuleCollider.bounds.size.z));
+    }
+
+        private void DamageEnemy(){
+        if(EnemyInSight()){
+            enemyHealth.TakeDamage(damage);
+        }
     }
 }
