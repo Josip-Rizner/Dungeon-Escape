@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ExitDoorController : MonoBehaviour
 {
-    private bool isUnlocked, isNearDoor;
+    private bool isUnlocked, isNearDoor, isAlreadyChecked;
     private SpriteRenderer spriteRenderer;
     [SerializeField] Text tooltipText;
     [SerializeField] Sprite lockedDoor, unlockedDoor;
@@ -17,6 +17,7 @@ public class ExitDoorController : MonoBehaviour
     {
         isUnlocked = false;
         isNearDoor = false;
+        isAlreadyChecked = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.sprite = lockedDoor;
@@ -27,9 +28,11 @@ public class ExitDoorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(keysController.CheckIfAllKeysAreCollected()){
+        if(keysController.CheckIfAllKeysAreCollected() && !isAlreadyChecked){
             isUnlocked = true;
             spriteRenderer.sprite = unlockedDoor;
+            StartCoroutine(KeysCollectedNotification());
+            isAlreadyChecked = true;
         }
 
         if(isNearDoor && isUnlocked && Input.GetKeyDown(KeyCode.E)){
@@ -63,5 +66,11 @@ public class ExitDoorController : MonoBehaviour
             isNearDoor = false;
         }
 
+    }
+
+    private IEnumerator KeysCollectedNotification(){
+        tooltipText.text = "All the Keys are found, you can exit this room.";
+        yield return new WaitForSeconds(3);
+        tooltipText.text = "";
     }
 }
