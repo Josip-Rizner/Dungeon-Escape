@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float damage;
+    private Health health;
     private Animator animator;
     private Rigidbody2D rb2D;
 
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
 
         moveSpeed = 0.75f;
         jumpForce = 15f;
@@ -120,6 +122,13 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.tag == "Platform"){
+            isJumping = false;
+            animator.SetBool("isJumping", false);
+        }
+
+        //Checking if player jumped on spikes
+        if(collision.gameObject.layer == 9){
+            health.TakeDamage(3);
             isJumping = false;
             animator.SetBool("isJumping", false);
         }
