@@ -7,11 +7,16 @@ public class KeysController : MonoBehaviour
 {
 
     public static int collectedKeys;
-    [SerializeField] int keysNeded;
+    private int keysNeded;
     [SerializeField] Text keyCountText;
+
+    private int numberOfChests;
     // Start is called before the first frame update
     void Start()
     {
+        numberOfChests = GetComponentsInChildren<ChestController>().Length;
+        keysNeded = numberOfChests;
+
         keyCountText.text = "0/" + keysNeded;
     }
 
