@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChestController : MonoBehaviour
 {
-    private bool isNearTheChest;
+    private bool isNearTheChest, isOpened;
     private SpriteRenderer spriteRenderer;
     [SerializeField] Text tooltipText;
     [SerializeField] Sprite closedChest, openedChest;
@@ -14,6 +14,7 @@ public class ChestController : MonoBehaviour
     void Start()
     {
         isNearTheChest = false;
+        isOpened = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.sprite = closedChest;
@@ -26,12 +27,14 @@ public class ChestController : MonoBehaviour
             spriteRenderer.sprite = openedChest;
             GetComponent<ChestController>().enabled = false;
             tooltipText.text = "";
-        }  
+            isOpened = true;
+            StartCoroutine(KeyFoundNotification());
+        } 
     }
 
     void OnTriggerEnter2D(Collider2D collision){
 
-        if(collision.gameObject.layer == 7){
+        if(collision.gameObject.layer == 7 && !isOpened){
             isNearTheChest = true;
             tooltipText.text = "Press E to open the Chest";
         }
@@ -39,10 +42,17 @@ public class ChestController : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D collision){
-        if(collision.gameObject.layer == 7){
+        if(collision.gameObject.layer == 7 && !isOpened){
             isNearTheChest = false;
             tooltipText.text = "";
         }
 
+    }
+
+
+    private IEnumerator KeyFoundNotification(){
+        tooltipText.text = "You found a Key!";
+        yield return new WaitForSeconds(3);
+        tooltipText.text = "";
     }
 }
