@@ -44,7 +44,7 @@ public class ExitDoorController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
 
         if(collision.gameObject.layer == 7 && !isUnlocked){
-            tooltipText.text = "Collect all keys to exit this room";
+            tooltipText.text = "Collect all keys to unlock this door";
             isNearDoor = true;
         }
 
@@ -69,7 +69,7 @@ public class ExitDoorController : MonoBehaviour
     }
 
     private IEnumerator KeysCollectedNotification(){
-        tooltipText.text = "All the Keys are found, you can exit this room.";
+        tooltipText.text = "All the Keys are found, exit door is unlocked!.";
         yield return new WaitForSeconds(3);
         tooltipText.text = "";
     }
