@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
     private bool isDead;
 
     private CapsuleCollider2D capsuleCollider;
-
+    private EnemyPatrol enemyPatrol;
 
     void Start()
     {
@@ -20,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         isDead = false;
+
+        enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
 
     public void TakeDamage(float _damage){
@@ -30,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth > 0){
             
             animator.SetTrigger("damaged");
+            enemyPatrol.TurnWhenAttacked();
         }
         else{
             if(!isDead){

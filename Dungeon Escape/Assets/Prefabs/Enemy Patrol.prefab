@@ -80,6 +80,7 @@ MonoBehaviour:
   rightEdge: {fileID: 1409713619439535884}
   enemy: {fileID: 1409713619144817346}
   speed: 1
+  delayBetweenTurningAndAttackingWhenAttacked: 1
   animator: {fileID: 1409713618169017643}
   idleDuration: 2
 --- !u!1 &1409713619439535885

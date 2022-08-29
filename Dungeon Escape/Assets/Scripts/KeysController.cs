@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class KeysController : MonoBehaviour
 {
 
-    public int collectedKeys{ get; private set; }
+    public static int collectedKeys;
     [SerializeField] int keysNeded;
     [SerializeField] Text keyCountText;
     // Start is called before the first frame update
@@ -18,14 +18,14 @@ public class KeysController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        keyCountText.text = collectedKeys + "/" + keysNeded;   
     }
 
     public void AddKeyToTheCount(){
         collectedKeys++;
     }
 
-    public bool CheckIfKeysAreCollected(){
+    public bool CheckIfAllKeysAreCollected(){
         if(collectedKeys == keysNeded){
             return true;
         }

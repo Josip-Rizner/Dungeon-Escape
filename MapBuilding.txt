@@ -1,0 +1,9 @@
+All Tilemaps on which players walks need to have "Platform" Tag and "ground" Layer (Interactive as well).
+As well as RigidBody and Tilemap collider
+
+Spikes need to have "spikes" Layer.
+
+
+And you need to add UI "Tooltip text" to the Chests, Doors, Levers etc.
+
+Also you need to add Tilemap to lever.

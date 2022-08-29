@@ -11,6 +11,7 @@ public class EnemyPatrol : MonoBehaviour
 
 
     [SerializeField] float speed;
+    [SerializeField] float delayBetweenTurningAndAttackingWhenAttacked;
     private Vector3 initialScale;
     private bool isMovingLeft = true;
 
@@ -21,7 +22,6 @@ public class EnemyPatrol : MonoBehaviour
 
     void Start(){
         initialScale = enemy.localScale;
-
 
     }
 
@@ -71,4 +71,20 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    public void TurnWhenAttacked(){
+        animator.SetBool("moving", false);
+        isMovingLeft = !isMovingLeft;
+        StartCoroutine(AttackDelayAfterTurningWhenAttacked());
+    }
+
+
+
+    private IEnumerator AttackDelayAfterTurningWhenAttacked(){
+        GetComponentInChildren<SkeletonController>().enabled = false;
+        yield return new WaitForSeconds(0.05f);
+        GetComponent<EnemyPatrol>().enabled = false;
+        yield return new WaitForSeconds(delayBetweenTurningAndAttackingWhenAttacked);
+        GetComponentInChildren<SkeletonController>().enabled = true;
+        GetComponent<EnemyPatrol>().enabled = true;
+    }
 }

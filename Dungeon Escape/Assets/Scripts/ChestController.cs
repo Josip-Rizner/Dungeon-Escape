@@ -10,6 +10,8 @@ public class ChestController : MonoBehaviour
     [SerializeField] Text tooltipText;
     [SerializeField] Sprite closedChest, openedChest;
 
+    private KeysController keysController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class ChestController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.sprite = closedChest;
+
+        keysController = GetComponentInParent<KeysController>();
     }
 
     // Update is called once per frame
@@ -25,6 +29,7 @@ public class ChestController : MonoBehaviour
     {
         if(isNearTheChest && Input.GetKeyDown(KeyCode.E)){
             spriteRenderer.sprite = openedChest;
+            keysController.AddKeyToTheCount();
             GetComponent<ChestController>().enabled = false;
             tooltipText.text = "";
             isOpened = true;
