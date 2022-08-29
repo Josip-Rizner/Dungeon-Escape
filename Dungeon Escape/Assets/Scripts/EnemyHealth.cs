@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
             if(!isDead){
                 animator.SetTrigger("dead");
                 GetComponentInParent<EnemyPatrol>().enabled = false;
-                GetComponent<SkeletonController>().enabled = false;
+                GetComponent<EnemyController>().enabled = false;
                 isDead = true;
 
                 capsuleCollider.size = new Vector2(0.2f, 0.1f);

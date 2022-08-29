@@ -80,11 +80,11 @@ public class EnemyPatrol : MonoBehaviour
 
 
     private IEnumerator AttackDelayAfterTurningWhenAttacked(){
-        GetComponentInChildren<SkeletonController>().enabled = false;
+        GetComponentInChildren<EnemyController>().enabled = false;
         yield return new WaitForSeconds(0.05f);
         GetComponent<EnemyPatrol>().enabled = false;
         yield return new WaitForSeconds(delayBetweenTurningAndAttackingWhenAttacked);
-        GetComponentInChildren<SkeletonController>().enabled = true;
+        GetComponentInChildren<EnemyController>().enabled = true;
         GetComponent<EnemyPatrol>().enabled = true;
     }
 }
