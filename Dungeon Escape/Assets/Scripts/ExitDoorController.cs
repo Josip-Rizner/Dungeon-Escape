@@ -9,6 +9,8 @@ public class ExitDoorController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] Text tooltipText;
     [SerializeField] Sprite lockedDoor, unlockedDoor;
+    [SerializeField] AudioClip unlockingTheMainDoorSound;
+    [SerializeField] AudioClip openingDoorSound;
 
     private KeysController keysController;
 
@@ -31,11 +33,13 @@ public class ExitDoorController : MonoBehaviour
         if(keysController.CheckIfAllKeysAreCollected() && !isAlreadyChecked){
             isUnlocked = true;
             spriteRenderer.sprite = unlockedDoor;
+            SoundController.instance.PlaySound(unlockingTheMainDoorSound);
             StartCoroutine(KeysCollectedNotification());
             isAlreadyChecked = true;
         }
 
         if(isNearDoor && isUnlocked && Input.GetKeyDown(KeyCode.E)){
+            SoundController.instance.PlaySound(openingDoorSound);
             tooltipText.text = "You Won";
             GetComponent<ExitDoorController>().enabled = false;
         } 

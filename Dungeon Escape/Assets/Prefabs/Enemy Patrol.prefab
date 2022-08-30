@@ -82,7 +82,7 @@ MonoBehaviour:
   speed: 1
   delayBetweenTurningAndAttackingWhenAttacked: 1
   animator: {fileID: 1409713618169017643}
-  idleDuration: 2
+  idleDuration: 1.3
 --- !u!1 &1409713619439535885
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 1476854453493192980, guid: 2b2e94b5aa5c99a4fa2204314462819b, type: 3}
+      propertyPath: swordSwingingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8767915d50d39e546be0c90222246e41, type: 3}
     - target: {fileID: 1476854453493192981, guid: 2b2e94b5aa5c99a4fa2204314462819b, type: 3}
       propertyPath: m_Direction
       value: 0
@@ -177,9 +181,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1506495463435430838, guid: 2b2e94b5aa5c99a4fa2204314462819b, type: 3}
+      propertyPath: dyingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0dd40f656348c564dbffd668a451b7e6, type: 3}
+    - target: {fileID: 1506495463435430838, guid: 2b2e94b5aa5c99a4fa2204314462819b, type: 3}
       propertyPath: startingHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1506495463435430838, guid: 2b2e94b5aa5c99a4fa2204314462819b, type: 3}
+      propertyPath: gettingHurtSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 80c75c258829fee48b79416b73bd6b19, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2e94b5aa5c99a4fa2204314462819b, type: 3}
 --- !u!4 &1409713619144817346 stripped

@@ -42,7 +42,7 @@ public class DifferentRoomDoorController : MonoBehaviour
     }
 
     private void TeleportPlayerToDifferentRoom(){
-        player.transform.position = new Vector3(differentRoomX, differentRoomy, 0);
+        player.transform.position = new Vector3(differentRoomX, differentRoomy, -1);
     }
 
 }

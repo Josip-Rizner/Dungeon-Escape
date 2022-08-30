@@ -14,6 +14,9 @@ public class EnemyHealth : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     private EnemyPatrol enemyPatrol;
 
+    [SerializeField] AudioClip gettingHurtSound;
+    [SerializeField] AudioClip dyingSound;
+
     void Start()
     {
         currentHealth = startingHealth;
@@ -32,11 +35,13 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth > 0){
             
             animator.SetTrigger("damaged");
+            SoundController.instance.PlaySound(gettingHurtSound);
             enemyPatrol.TurnWhenAttacked();
         }
         else{
             if(!isDead){
                 animator.SetTrigger("dead");
+                SoundController.instance.PlaySound(dyingSound);
                 GetComponentInParent<EnemyPatrol>().enabled = false;
                 GetComponent<EnemyController>().enabled = false;
                 isDead = true;

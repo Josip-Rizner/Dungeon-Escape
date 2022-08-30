@@ -11,7 +11,9 @@ public class Health : MonoBehaviour
     private Animator animator;
     public bool isDead{ get; private set; }
 
+    [SerializeField] AudioClip hurtSound;
 
+    [SerializeField] AudioClip dyingSound;
 
     //iFrames
     [SerializeField] float invulnerabilityDuration;
@@ -34,11 +36,13 @@ public class Health : MonoBehaviour
         if(currentHealth > 0){
             
             animator.SetTrigger("damaged");
+            SoundController.instance.PlaySound(hurtSound);
             StartCoroutine(Invunerability());
         }
         else{
             if(!isDead){
                 animator.SetTrigger("dead");
+                SoundController.instance.PlaySound(dyingSound);
                 GetComponent<PlayerController>().enabled = false;
                 isDead = true;
             }

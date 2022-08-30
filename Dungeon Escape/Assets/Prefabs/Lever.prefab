@@ -127,3 +127,4 @@ MonoBehaviour:
   defaultLever: {fileID: 21300022, guid: ae3918a914038694d852d0bb81f62473, type: 3}
   switchedLever: {fileID: 21300024, guid: ae3918a914038694d852d0bb81f62473, type: 3}
   interactiveTilemap: {fileID: 0}
+  leverSwitchingSound: {fileID: 8300000, guid: e825e7fa3a2d2f746922a8c2e1a4e4a8, type: 3}

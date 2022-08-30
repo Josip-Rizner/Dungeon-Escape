@@ -15,6 +15,7 @@ public class LeverController : MonoBehaviour
 
     [SerializeField] Tilemap interactiveTilemap;
 
+    [SerializeField] AudioClip leverSwitchingSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class LeverController : MonoBehaviour
                 transform.position = new Vector3(transform.position.x - 0.02f,transform.position.y - 0.08f, transform.position.z);
                 interactiveTilemap.GetComponent<TilemapCollider2D>().enabled = true;
                 interactiveTilemap.GetComponent<Tilemap>().color = Color.white;
+                SoundController.instance.PlaySound(leverSwitchingSound);
                 GetComponent<LeverController>().enabled = false;
                 tooltipText.text = "";
                 isSwithced = true;
@@ -45,6 +47,7 @@ public class LeverController : MonoBehaviour
                 transform.position = new Vector3(transform.position.x - 0.02f,transform.position.y - 0.08f, transform.position.z);
                 interactiveTilemap.GetComponent<TilemapCollider2D>().enabled = false;
                 interactiveTilemap.GetComponent<Tilemap>().color = new Color(0.2830189f, 0.2336241f, 0.2336241f, 0.4666667f);;
+                SoundController.instance.PlaySound(leverSwitchingSound);
                 GetComponent<LeverController>().enabled = false;
                 tooltipText.text = "";
                 isSwithced = true;

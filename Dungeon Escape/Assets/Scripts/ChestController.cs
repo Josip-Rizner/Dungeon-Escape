@@ -12,6 +12,9 @@ public class ChestController : MonoBehaviour
 
     private KeysController keysController;
 
+
+    [SerializeField] AudioClip chestOpeningSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,7 @@ public class ChestController : MonoBehaviour
         if(isNearTheChest && Input.GetKeyDown(KeyCode.E)){
             spriteRenderer.sprite = openedChest;
             keysController.AddKeyToTheCount();
+            SoundController.instance.PlaySound(chestOpeningSound);
             GetComponent<ChestController>().enabled = false;
             tooltipText.text = "";
             isOpened = true;

@@ -125,3 +125,4 @@ MonoBehaviour:
   tooltipText: {fileID: 0}
   closedChest: {fileID: 21300010, guid: ae3918a914038694d852d0bb81f62473, type: 3}
   openedChest: {fileID: 21300012, guid: ae3918a914038694d852d0bb81f62473, type: 3}
+  chestOpeningSound: {fileID: 8300000, guid: a27d61e70654bd24a84c15b407a11736, type: 3}

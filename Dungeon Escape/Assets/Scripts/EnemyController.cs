@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     private EnemyPatrol enemyPatrol;
 
     private EnemyHealth health;
+
+    [SerializeField] AudioClip swordSwingingSound;
     void Start()
     {
         health = GetComponent<EnemyHealth>();
@@ -40,6 +42,7 @@ public class EnemyController : MonoBehaviour
                 
                 cooldownTimer = 0;
                 animator.SetTrigger("attack");
+                SoundController.instance.PlaySound(swordSwingingSound);
             }
         }
 

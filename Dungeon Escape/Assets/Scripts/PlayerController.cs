@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float colliderDistance;
     [SerializeField] LayerMask enemyLayer;
 
+
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip runningSound;
+    [SerializeField] AudioClip landingSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,15 +92,18 @@ public class PlayerController : MonoBehaviour
         if((moveHorizontal > 0.1f || moveHorizontal < -0.1f) && !dissableHorizontalMovement){
             if(isAttacking){
                 rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed/3, 0f), ForceMode2D.Impulse);
+                SoundController.instance.PlaySoundIfFinished(runningSound);
             }
             else{
                 rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
+                SoundController.instance.PlaySoundIfFinished(runningSound);
             }
 
         }
 
         if(moveVertical > 0.1f && !isJumping){
             rb2D.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
+            SoundController.instance.PlaySound(jumpSound);
         }
         
         if(moveVertical > 0.1f && isGrabingLedge){
@@ -103,6 +112,7 @@ public class PlayerController : MonoBehaviour
             rb2D.gravityScale = startingGravity;
             dissableHorizontalMovement = false;
             animator.SetTrigger("jump");
+            SoundController.instance.PlaySound(jumpSound);
         }
 
         if(moveHorizontal > 0 && isFacingRight && !dissableHorizontalMovement){
@@ -124,6 +134,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Platform"){
             isJumping = false;
             animator.SetBool("isJumping", false);
+            SoundController.instance.PlaySound(landingSound);
         }
 
         //Checking if player jumped on spikes
@@ -153,6 +164,7 @@ public class PlayerController : MonoBehaviour
 
     void Attack(){
         animator.SetTrigger("attack");
+        SoundController.instance.PlaySound(attackSound);
     }
 
     void OnDrawGizmosSelected(){
