@@ -92,11 +92,12 @@ public class PlayerController : MonoBehaviour
         if((moveHorizontal > 0.1f || moveHorizontal < -0.1f) && !dissableHorizontalMovement){
             if(isAttacking){
                 rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed/3, 0f), ForceMode2D.Impulse);
-                SoundController.instance.PlaySoundIfFinished(runningSound);
             }
             else{
                 rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
-                SoundController.instance.PlaySoundIfFinished(runningSound);
+                if(!isJumping){
+                    SoundController.instance.PlaySoundIfFinished(runningSound);
+                }
             }
 
         }

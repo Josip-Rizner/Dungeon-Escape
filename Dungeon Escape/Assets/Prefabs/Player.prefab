@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  hurtSound: {fileID: 8300000, guid: dc64ce0e985c61044b9f94dcedc97129, type: 3}
+  hurtSound: {fileID: 8300000, guid: 6ff3a59be47aad04a8df168cb80292fe, type: 3}
   dyingSound: {fileID: 8300000, guid: 5c7b6d4002009e842bd2621585546d19, type: 3}
   invulnerabilityDuration: 1
   numberOfFlashes: 3
