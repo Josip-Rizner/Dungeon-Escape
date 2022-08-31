@@ -40,7 +40,6 @@ public class ExitDoorController : MonoBehaviour
 
         if(isNearDoor && isUnlocked && Input.GetKeyDown(KeyCode.E)){
             SoundController.instance.PlaySound(openingDoorSound);
-            tooltipText.text = "You Won";
             GetComponent<ExitDoorController>().enabled = false;
         } 
     }

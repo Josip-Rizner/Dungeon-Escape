@@ -297,6 +297,7 @@ MonoBehaviour:
   startingHealth: 3
   hurtSound: {fileID: 8300000, guid: 6ff3a59be47aad04a8df168cb80292fe, type: 3}
   dyingSound: {fileID: 8300000, guid: 5c7b6d4002009e842bd2621585546d19, type: 3}
+  looseSound: {fileID: 8300000, guid: d448f87238f634041aaf580fae66011e, type: 3}
   invulnerabilityDuration: 1
   numberOfFlashes: 3
 --- !u!1 &7604450003869224367

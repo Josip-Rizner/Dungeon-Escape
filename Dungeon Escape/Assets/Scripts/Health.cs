@@ -45,6 +45,8 @@ public class Health : MonoBehaviour
                 SoundController.instance.PlaySound(dyingSound);
                 GetComponent<PlayerController>().enabled = false;
                 isDead = true;
+                PrevisousSceneController.previousScene = SceneController.instance.GetSceneIndex();
+                SceneController.instance.LoadLooseScene();
             }
         }
     }
