@@ -41,6 +41,7 @@ public class SceneController : MonoBehaviour
     public void LoadLooseScene(){
         SceneManager.LoadScene("LooseScreen");
         SoundController.instance.PlaySound(looseSound);
+        KeysController.collectedKeys = 0;
     }
 
     public void LoadWinningScene(){

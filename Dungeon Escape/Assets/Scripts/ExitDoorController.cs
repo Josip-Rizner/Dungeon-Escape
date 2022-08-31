@@ -41,6 +41,8 @@ public class ExitDoorController : MonoBehaviour
         if(isNearDoor && isUnlocked && Input.GetKeyDown(KeyCode.E)){
             SoundController.instance.PlaySound(openingDoorSound);
             GetComponent<ExitDoorController>().enabled = false;
+            PrevisousSceneController.previousScene = SceneController.instance.GetSceneIndex();
+            SceneController.instance.LoadWinningScene();
         } 
     }
 

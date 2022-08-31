@@ -7,3 +7,7 @@ Spikes need to have "spikes" Layer.
 And you need to add UI "Tooltip text" to the Chests, Doors, Levers etc.
 
 Also you need to add Tilemap to lever.
+
+Sound and Scene controllers must be in all of the scenes.
+
+Pause controller must be in all level scenes.
