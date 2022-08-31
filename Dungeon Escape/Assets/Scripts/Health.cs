@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
                 GetComponent<PlayerController>().enabled = false;
                 isDead = true;
                 PrevisousSceneController.previousScene = SceneController.instance.GetSceneIndex();
-                SceneController.instance.LoadLooseScene();
+                StartCoroutine(DeathDelay());
             }
         }
     }
@@ -76,6 +76,12 @@ public class Health : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(7, 8, false);
+    }
+
+    private IEnumerator DeathDelay(){
+        
+        yield return new WaitForSeconds(3);
+        SceneController.instance.LoadLooseScene();
     }
 
 }

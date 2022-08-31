@@ -31,4 +31,8 @@ public class PauseController : MonoBehaviour
         pauseMenuUI.SetActive(false);
         gameIsPaused = false;
     }
+
+    void OnDestroy(){
+        Time.timeScale = 1;
+    }
 }
