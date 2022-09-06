@@ -8,6 +8,8 @@ public class ChestController : MonoBehaviour
     private bool isNearTheChest, isOpened;
     private SpriteRenderer spriteRenderer;
     [SerializeField] Text tooltipText;
+
+    [SerializeField] GameObject tooltipPanel;
     [SerializeField] Sprite closedChest, openedChest;
 
     private KeysController keysController;
@@ -25,6 +27,8 @@ public class ChestController : MonoBehaviour
         spriteRenderer.sprite = closedChest;
 
         keysController = GetComponentInParent<KeysController>();
+        tooltipText.text = "";
+        tooltipPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,6 +40,7 @@ public class ChestController : MonoBehaviour
             SoundController.instance.PlaySound(chestOpeningSound);
             GetComponent<ChestController>().enabled = false;
             tooltipText.text = "";
+            tooltipPanel.SetActive(false);
             isOpened = true;
             StartCoroutine(KeyFoundNotification());
         } 
@@ -46,6 +51,7 @@ public class ChestController : MonoBehaviour
         if(collision.gameObject.layer == 7 && !isOpened){
             isNearTheChest = true;
             tooltipText.text = "Press E to open the Chest";
+            tooltipPanel.SetActive(true);
         }
 
     }
@@ -54,6 +60,7 @@ public class ChestController : MonoBehaviour
         if(collision.gameObject.layer == 7 && !isOpened){
             isNearTheChest = false;
             tooltipText.text = "";
+            tooltipPanel.SetActive(false);
         }
 
     }
@@ -61,7 +68,9 @@ public class ChestController : MonoBehaviour
 
     private IEnumerator KeyFoundNotification(){
         tooltipText.text = "You found a Key!";
+        tooltipPanel.SetActive(true);
         yield return new WaitForSeconds(3);
         tooltipText.text = "";
+        tooltipPanel.SetActive(false);
     }
 }

@@ -23,15 +23,18 @@ public class SceneController : MonoBehaviour
 
     public void LoadScene(string name){
         SceneManager.LoadScene(name);
+        KeysController.collectedKeys = 0;
     }
 
     public void LoadNextLevel(){
         SceneManager.LoadScene(PrevisousSceneController.previousScene + 1);
+        KeysController.collectedKeys = 0;
     }
 
 
     public void LoadSameLevel(){
         SceneManager.LoadScene(PrevisousSceneController.previousScene);
+        KeysController.collectedKeys = 0;
     }
 
     public int GetSceneIndex(){
@@ -47,6 +50,7 @@ public class SceneController : MonoBehaviour
     public void LoadWinningScene(){
         SceneManager.LoadScene("WinningScreen");
         SoundController.instance.PlaySound(winningSound);
+        KeysController.collectedKeys = 0;
     }
 
 }

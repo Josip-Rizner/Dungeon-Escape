@@ -8,6 +8,7 @@ public class ExitDoorController : MonoBehaviour
     private bool isUnlocked, isNearDoor, isAlreadyChecked;
     private SpriteRenderer spriteRenderer;
     [SerializeField] Text tooltipText;
+    [SerializeField] GameObject tooltipPanel;
     [SerializeField] Sprite lockedDoor, unlockedDoor;
     [SerializeField] AudioClip unlockingTheMainDoorSound;
     [SerializeField] AudioClip openingDoorSound;
@@ -25,6 +26,9 @@ public class ExitDoorController : MonoBehaviour
         spriteRenderer.sprite = lockedDoor;
 
         keysController = GetComponentInParent<KeysController>();
+
+        tooltipText.text = "";
+        tooltipPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -49,11 +53,13 @@ public class ExitDoorController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
 
         if(collision.gameObject.layer == 7 && !isUnlocked){
+            tooltipPanel.SetActive(true);
             tooltipText.text = "Collect all keys to unlock this door";
             isNearDoor = true;
         }
 
         if(collision.gameObject.layer == 7 && isUnlocked){
+            tooltipPanel.SetActive(true);
             tooltipText.text = "Press E to exit this room";
             isNearDoor = true;
         }
@@ -63,19 +69,23 @@ public class ExitDoorController : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.layer == 7 && !isUnlocked){
             tooltipText.text = "";
+            tooltipPanel.SetActive(false);
             isNearDoor = false;
         }
 
         if(collision.gameObject.layer == 7 && isUnlocked){
             tooltipText.text = "";
+            tooltipPanel.SetActive(false);
             isNearDoor = false;
         }
 
     }
 
     private IEnumerator KeysCollectedNotification(){
+        tooltipPanel.SetActive(true);
         tooltipText.text = "All the Keys are found, exit door is unlocked!.";
         yield return new WaitForSeconds(3);
         tooltipText.text = "";
+        tooltipPanel.SetActive(false);
     }
 }

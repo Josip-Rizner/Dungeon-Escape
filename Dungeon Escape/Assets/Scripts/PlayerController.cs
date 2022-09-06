@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
         if(lowerBox && !upperBox && !isGrabingLedge && isJumping){
             isGrabingLedge = true;
         }
+
     }
 
     void FixedUpdate(){
