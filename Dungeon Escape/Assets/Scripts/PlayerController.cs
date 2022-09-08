@@ -161,6 +161,16 @@ public class PlayerController : MonoBehaviour
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
 
+        Vector3 currentPosition = gameObject.transform.position;
+        if(isFacingRight){
+            currentPosition.x += 0.5f;
+        }
+        else{
+            currentPosition.x -= 0.5f;
+        }
+
+        gameObject.transform.position = currentPosition;
+
         isFacingRight = !isFacingRight;
     }
 
