@@ -1408,6 +1408,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db7492e8fe90383418dd7775355ae25c, type: 3}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5492161604930313954, guid: b69982f5710562942ad61180da8dbc83, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -1475,6 +1499,30 @@ PrefabInstance:
     - target: {fileID: 5492161604930313964, guid: b69982f5710562942ad61180da8dbc83, type: 3}
       propertyPath: m_DrawMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161604936788138, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161604936788138, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 495.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 113.937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.964
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -143.195
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b69982f5710562942ad61180da8dbc83, type: 3}

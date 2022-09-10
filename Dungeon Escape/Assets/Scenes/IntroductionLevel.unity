@@ -46953,6 +46953,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db7492e8fe90383418dd7775355ae25c, type: 3}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5412584695321119000, guid: b69982f5710562942ad61180da8dbc83, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -47006,8 +47030,32 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5492161604936788138, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161604936788138, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161604936788138, guid: b69982f5710562942ad61180da8dbc83, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 498.638
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 113.937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.963
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -137.818
       objectReference: {fileID: 0}
     - target: {fileID: 5775612344623688917, guid: b69982f5710562942ad61180da8dbc83, type: 3}
       propertyPath: m_SizeDelta.y

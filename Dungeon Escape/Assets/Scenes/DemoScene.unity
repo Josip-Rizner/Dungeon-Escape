@@ -13122,7 +13122,7 @@ Transform:
   - {fileID: 1826593894}
   - {fileID: 82035784}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2051407713
 PrefabInstance:
@@ -13714,6 +13714,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db7492e8fe90383418dd7775355ae25c, type: 3}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436788356443176106, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161604936788138, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161604936788138, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500.431
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 124.693
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492161605758374766, guid: b69982f5710562942ad61180da8dbc83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -141.402
+      objectReference: {fileID: 0}
     - target: {fileID: 8006267202078754296, guid: b69982f5710562942ad61180da8dbc83, type: 3}
       propertyPath: m_Name
       value: Player
