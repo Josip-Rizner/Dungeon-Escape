@@ -84,7 +84,9 @@ public class EnemyPatrol : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         GetComponent<EnemyPatrol>().enabled = false;
         yield return new WaitForSeconds(delayBetweenTurningAndAttackingWhenAttacked);
-        GetComponentInChildren<EnemyController>().enabled = true;
-        GetComponent<EnemyPatrol>().enabled = true;
+        if(!EnemyHealth.isDead){
+            GetComponentInChildren<EnemyController>().enabled = true;
+            GetComponent<EnemyPatrol>().enabled = true;
+        }
     }
 }

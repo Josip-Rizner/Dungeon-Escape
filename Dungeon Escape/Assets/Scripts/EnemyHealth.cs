@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public float currentHealth{ get; private set; }
 
     private Animator animator;
-    private bool isDead;
+    public static bool isDead;
 
     private CapsuleCollider2D capsuleCollider;
     private EnemyPatrol enemyPatrol;
