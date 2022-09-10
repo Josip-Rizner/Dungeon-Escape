@@ -20,9 +20,12 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] float idleDuration;
     private float idleTimer;
 
+    private EnemyHealth health;
+
     void Start(){
         initialScale = enemy.localScale;
 
+        health = GetComponentInChildren<EnemyHealth>();
     }
 
     void Update(){
@@ -84,7 +87,7 @@ public class EnemyPatrol : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         GetComponent<EnemyPatrol>().enabled = false;
         yield return new WaitForSeconds(delayBetweenTurningAndAttackingWhenAttacked);
-        if(!EnemyHealth.isDead){
+        if(!health.checkIfDead()){
             GetComponentInChildren<EnemyController>().enabled = true;
             GetComponent<EnemyPatrol>().enabled = true;
         }
