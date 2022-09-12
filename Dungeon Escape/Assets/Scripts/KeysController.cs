@@ -8,7 +8,9 @@ public class KeysController : MonoBehaviour
 
     public static int collectedKeys;
     private int keysNeded;
-    [SerializeField] Text keyCountText;
+
+    private GameObject keyPanel;
+    private Text keyCountText;
 
     private int numberOfChests;
     // Start is called before the first frame update
@@ -16,6 +18,9 @@ public class KeysController : MonoBehaviour
     {
         numberOfChests = GetComponentsInChildren<ChestController>().Length;
         keysNeded = numberOfChests;
+        keyPanel = GameObject.Find("Player/Main Camera/Canvas/Panel");
+        keyCountText = keyPanel.GetComponentInChildren<Text>();
+
 
         keyCountText.text = "0/" + keysNeded;
     }

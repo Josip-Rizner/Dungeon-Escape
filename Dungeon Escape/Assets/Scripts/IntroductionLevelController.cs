@@ -7,10 +7,12 @@ public class IntroductionLevelController : MonoBehaviour
 {
     [SerializeField] GameObject player;
 
-    [SerializeField] Text tooltipText;
-    [SerializeField] GameObject tooltipPanel;
-
     private float playerXPosition;
+
+    void Start(){
+        player = GameObject.Find("Player");
+        TooltipController.instance.hideToolip();
+    }
 
     void Update(){
         
@@ -54,10 +56,8 @@ public class IntroductionLevelController : MonoBehaviour
 
 
     private IEnumerator ShowTip(string tip){
-        tooltipPanel.SetActive(true);
-        tooltipText.text = tip;
+        TooltipController.instance.showTooltip(tip);
         yield return new WaitForSeconds(5);
-        tooltipText.text = "";
-        tooltipPanel.SetActive(false);
+        TooltipController.instance.hideToolip();
     }
 }

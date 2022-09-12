@@ -6,19 +6,17 @@ using UnityEngine.UI;
 public class DifferentRoomDoorController : MonoBehaviour
 {
     private bool isNearDoor;
-    [SerializeField] Text tooltipText;
     [SerializeField] float differentRoomX;
     [SerializeField] float differentRoomy;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject tooltipPanel;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         isNearDoor = false;
-        tooltipText.text = "";
-        tooltipPanel.SetActive(false);
+        TooltipController.instance.hideToolip();
     }
 
     // Update is called once per frame
@@ -32,16 +30,14 @@ public class DifferentRoomDoorController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
 
         if(collision.gameObject.layer == 7){
-            tooltipText.text = "Press E to enter this door";
             isNearDoor = true;
-            tooltipPanel.SetActive(true);
+            TooltipController.instance.showTooltip("Press E to enter this door");
         }
     }
 
     void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.layer == 7){
-            tooltipText.text = "";
-            tooltipPanel.SetActive(false);
+            TooltipController.instance.hideToolip();
             isNearDoor = false;
         }
     }

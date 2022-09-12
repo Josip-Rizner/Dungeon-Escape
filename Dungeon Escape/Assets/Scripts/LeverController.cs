@@ -10,8 +10,7 @@ public class LeverController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] bool isVisibleFromTheStart;
-    [SerializeField] Text tooltipText;
-    [SerializeField] GameObject tooltipPanel;
+
     [SerializeField] Sprite defaultLever, switchedLever;
 
     [SerializeField] Tilemap interactiveTilemap;
@@ -26,8 +25,7 @@ public class LeverController : MonoBehaviour
 
         spriteRenderer.sprite = defaultLever;
         
-        tooltipText.text = "";
-        tooltipPanel.SetActive(false);
+        TooltipController.instance.hideToolip();
     }
 
     // Update is called once per frame
@@ -42,8 +40,7 @@ public class LeverController : MonoBehaviour
                 interactiveTilemap.GetComponent<Tilemap>().color = Color.white;
                 SoundController.instance.PlaySound(leverSwitchingSound);
                 GetComponent<LeverController>().enabled = false;
-                tooltipText.text = "";
-                tooltipPanel.SetActive(false);
+                TooltipController.instance.hideToolip();
                 isSwithced = true;
                 StartCoroutine(BlocksAppearedNotification());
             }
@@ -54,8 +51,7 @@ public class LeverController : MonoBehaviour
                 interactiveTilemap.GetComponent<Tilemap>().color = new Color(0.2830189f, 0.2336241f, 0.2336241f, 0.4666667f);;
                 SoundController.instance.PlaySound(leverSwitchingSound);
                 GetComponent<LeverController>().enabled = false;
-                tooltipText.text = "";
-                tooltipPanel.SetActive(false);
+                TooltipController.instance.hideToolip();
                 isSwithced = true;
                 StartCoroutine(BlocksAppearedNotification());
             }
@@ -67,8 +63,7 @@ public class LeverController : MonoBehaviour
 
         if(collision.gameObject.layer == 7 && !isSwithced){
             isNearTheLever = true;
-            tooltipPanel.SetActive(true);
-            tooltipText.text = "Press E to switch the Lever";
+            TooltipController.instance.showTooltip("Press E to switch the Lever");
         }
 
     }
@@ -76,18 +71,15 @@ public class LeverController : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.layer == 7 && !isSwithced){
             isNearTheLever = false;
-            tooltipText.text = "";
-            tooltipPanel.SetActive(false);
+            TooltipController.instance.hideToolip();
         }
 
     }
 
 
     private IEnumerator BlocksAppearedNotification(){
-        tooltipPanel.SetActive(true);
-        tooltipText.text = "Layout of the dunguen changed";
+        TooltipController.instance.showTooltip("Layout of the dunguen changed");
         yield return new WaitForSeconds(3);
-        tooltipText.text = "";
-        tooltipPanel.SetActive(false);
+        TooltipController.instance.hideToolip();
     }
 }
